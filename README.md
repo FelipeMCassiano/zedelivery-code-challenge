@@ -5,7 +5,7 @@ A backend service for managing delivery partners, built with Fastify, TypeScript
 ## 🚀 Features
 
 -   Register new delivery partners
--   Search partners by location (GeoJSON)
+-   Search the nearest partner which the coverage area includes the location.
 -   Retrieve partner details by ID
 -   MongoDB geospatial queries
 
@@ -49,7 +49,7 @@ docker-compose up -d
 | Method | Endpoint               | Description                    |
 | ------ | ---------------------- | ------------------------------ |
 | GET    | `/partners/:partnerId` | Get partner by ID              |
-| GET    | `/partners?long=&lat=` | Search partners by coordinates |
+| GET    | `/partners?long=&lat=` |  Search the nearest partner    |
 | POST   | `/partners`            | Register a new partner         |
 
 ## 📝 Partner JSON Example
