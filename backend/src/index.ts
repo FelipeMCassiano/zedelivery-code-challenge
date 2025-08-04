@@ -1,9 +1,9 @@
-import cors from "@fastify/cors";
 import fastify from "fastify";
 import { IPartner } from "./config/types";
 import { partnerService } from "./services/partner-service";
 
 const server = fastify();
+const APP_PORT = parseInt(process.env.APP_PORT!) ?? 8080;
 
 server.get<{ Params: { partnerId: number } }>(
     "/partners/:partnerId",
@@ -39,13 +39,7 @@ server.post<{ Body: IPartner }>("/partners", async (request, reply) => {
     return reply.code(201).send();
 });
 
-server.register(cors, {
-    origin: "*", // Allows all origins (for development, use specific origins in production)
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed HTTP methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allowed request headers
-    credentials: true, // Allow sending of cookies and authorization headers
-});
-server.listen({ port: 8080 }, (err, address) => {
+server.listen({ port: APP_PORT, host: "0.0.0.0" }, (err, address) => {
     if (err) {
         console.error(err);
         process.exit(1);

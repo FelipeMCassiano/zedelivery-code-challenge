@@ -1,7 +1,10 @@
 import mongoose, { model, Schema } from "mongoose";
 import { IPartner, Multipolygon, Point } from "./types";
 
-mongoose.connect("mongodb://admin:1234@localhost:27017/partners", {
+const DB_USER = process.env.DB_USER ?? "admin";
+const DB_PASS = process.env.DB_PASS ?? 1234;
+
+mongoose.connect(`mongodb://${DB_USER}:${DB_PASS}@mongo:27017/partners`, {
     authSource: "admin",
 });
 

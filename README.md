@@ -38,22 +38,10 @@ git clone https://github.com/yourusername/zedelivery-challenge.git
 cd zedelivery-challenge/backend
 ```
 
-### 2. Start MongoDB with Docker
+### 2. Start Project with Docker
 
 ```sh
 docker-compose up -d
-```
-
-### 3. Install dependencies
-
-```sh
-npm install
-```
-
-### 4. Run the backend
-
-```sh
-npm start
 ```
 
 ## 📚 API Endpoints
